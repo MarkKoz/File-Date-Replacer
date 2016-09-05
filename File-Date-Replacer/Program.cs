@@ -38,16 +38,17 @@ namespace File_Date_Replacer
 			{
 				if (args[0].Contains("*"))
 				{
-					var files = Directory.EnumerateFiles(dir, "*");
-					Console.Write($"{files.Count()} " +
-					              $"files were found in {dir}");
+					var files = Directory.EnumerateFiles(dir, args[0]);
+					Console.WriteLine($"{files.Count()} " +
+					              $"files were found in {dir}\n");
 
 					foreach (string f in files)
 					{
 						WriteDate(f);
 					}
 
-					Console.WriteLine("Replacing complete.");
+					Console.WriteLine("\nReplacing complete.");
+					Console.ReadLine();
 				}
 				else
 				{
@@ -55,6 +56,9 @@ namespace File_Date_Replacer
 					Console.WriteLine($"The path is: {path}");
 
 					WriteDate(path);
+
+					Console.WriteLine("\nReplacing complete.");
+					Console.ReadLine();
 				}
 			}
 		}
